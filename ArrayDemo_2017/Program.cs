@@ -122,6 +122,25 @@ namespace ArrayDemo_2017
                 Console.WriteLine("Score = {0}", item);
             }
         }
+        static int q9() // method to multiply two arrays by their corresponding elements and accumalate the results
+        {
+            int total = 0;     // delclaring and initialising variable to return
+
+            int[] numbers = { 5, 7, 6, 5, 4, 3 };    // declaring and array and initialsing it with values. // length of array is got automatically
+
+            // loop to iterate through every element of the playerAges Array
+            for (int i = 0; i < playerAges.Length; i++)
+            {
+                // loop to iterate through the every element of the numbers array
+                for (int j = 0; j < numbers.Length; j++)
+                {
+                    total += playerAges[i] * numbers[j];    //  for every element in both arrays (the two loops) do this ( multiply every element in one array by its corresponding element in the other
+                    i++;
+                }
+
+            }
+            return total;      // returns the total of the two array elements multiplied togetherf
+        }
 
 
     }
