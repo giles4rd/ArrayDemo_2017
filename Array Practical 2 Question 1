@@ -1,0 +1,144 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Arrays_Practical2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = { 7, 3, 6, 2, 9 };   // declaring and initialising an array with values
+
+            /* -- Q1 -- */
+
+            /* -- Part1 -- */
+            int largest = getLargest(numbers);        // method  call to get the largest number for an array
+            Console.WriteLine("The largest is {0}", largest);       // print largest number
+            Console.ReadLine();
+
+            /* -- Part2 -- */
+            int smallest = getSmallest(numbers);      // method call to get the smeallest number of the array
+            Console.WriteLine("The smalles is {0}", smallest); // display smallest to console
+            Console.ReadLine();
+
+            /* -- Part3 -- */
+            bool sorted = sortedAscending(numbers); // method to check if an array is sorted by ascending order
+            Console.WriteLine(sorted);
+            Console.ReadLine();
+
+            /* -- Part4 -- */
+            double averageEveryThird = getAverageEveryThird(numbers); // method call to get the average of every third number
+            Console.WriteLine("The average of every third is {0}", averageEveryThird);
+            Console.ReadLine();
+
+            /* -- Part5 -- */
+            decimal standardDeviaton = getStandarDeviation(numbers);   // method to get the standard deviation from the array 
+            Console.WriteLine("The pop standard deviation is {0}", standardDeviaton);
+            Console.ReadLine();
+        }
+
+        static int getLargest(int[] numbersIn)
+        {
+            int largest = numbersIn[0];
+
+            for (int i = 0; i < numbersIn.Length; i++)
+            {
+                if (numbersIn[i] > largest)
+                {
+                    largest = numbersIn[i];
+
+                }
+            }
+
+            return largest;
+        }    // method to get the largest number from an array that is passed as  a parametre
+
+        static int getSmallest(int[] numbersIn)
+
+        {
+            int smallest = numbersIn[0];
+            for (int i = 0; i < numbersIn.Length; i++)
+            {
+                if (numbersIn[i] < smallest)
+                {
+                    smallest = numbersIn[i];
+                }
+            }
+            return smallest;
+
+
+        }   // method to get the smallest number from an array that is passed as a parametre 
+
+        static bool sortedAscending(int[] numbersIn)
+        {
+            bool sorted = false;
+
+            for (int i = 0; i < numbersIn.Length; i++)
+            {
+                if (numbersIn[i] < numbersIn[i] + 1)
+                {
+                    sorted = true;
+
+                }
+                else
+                {
+                    sorted = false;
+                    return sorted;
+                }
+
+            }
+            return sorted;
+
+        }  // method to sort an array in ascending order
+
+        static double getAverageEveryThird(int[] numbersIn)
+        {
+            double average = 0;
+            int count = 0;
+            int total = 0;
+
+            for (int i = 0; i < numbersIn.Length; i += 2)
+            {
+                total += numbersIn[i];
+                count++;
+
+            }
+            average = total / count;
+
+            return average = (double)total / (double)count;
+
+
+
+
+
+        }  // method to get the average of every third element in the array
+
+        static decimal getStandarDeviation(int[] numbersIn)       // method to get standard deviation
+
+        {
+            // to work out standard deviaton
+
+            double mean;
+            decimal standardDev = 0;
+            int count = 0, total = 0;
+
+            // mean
+            for (int i = 0; i < numbersIn.Length; i++)
+            {
+                total += numbersIn[i];
+                count++;
+            }
+            mean = (double)total / count;
+
+            /// standard deviation
+
+            standardDev = (decimal)Math.Sqrt((Math.Pow(numbersIn[0], 2) + Math.Pow(numbersIn[1], 2) + Math.Pow(numbersIn[2], 2) + Math.Pow(numbersIn[3], 2) + Math.Pow(numbersIn[4], 2)) / count - Math.Pow(mean, 2));
+
+            return standardDev;
+        }
+
+    }
+}
