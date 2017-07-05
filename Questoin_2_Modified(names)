@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Question_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // delcare variables
+            int[] totals = new int[4];   // array to store totals for each match
+
+            /*   2-Dimensional array to store the goals that
+                 5 players scoed in 4 different matches
+             */
+            int[,] playerGoals = new int[5, 5]; // 2- Dimensional array to store player goals for 4 matches
+
+            string[] playerNames = { "Pat", "John", "Kim", "Betty", "Ivana" }; // array to store player names
+
+            // to fill the first column with player numbers
+            playerGoals[0, 0] = 1;
+            playerGoals[1, 0] = 2;
+            playerGoals[2, 0] = 3;
+            playerGoals[3, 0] = 4;
+            playerGoals[4, 0] = 5;
+
+            // player  1 Goals
+            playerGoals[0, 1] = 0;
+            playerGoals[0, 2] = 2;
+            playerGoals[0, 3] = 4;
+            playerGoals[0, 4] = 1;
+
+            // player  2 Goals
+            playerGoals[1, 1] = 3;
+            playerGoals[1, 2] = 2;
+            playerGoals[1, 3] = 4;
+            playerGoals[1, 4] = 1;
+
+            // player  3 Goals
+            playerGoals[2, 1] = 2;
+            playerGoals[2, 2] = 0;
+            playerGoals[2, 3] = 4;
+            playerGoals[2, 4] = 1;
+
+            // player  4 Goals
+            playerGoals[3, 1] = 1;
+            playerGoals[3, 2] = 2;
+            playerGoals[3, 3] = 4;
+            playerGoals[3, 4] = 0;
+
+            // player  5 Goals
+            playerGoals[4, 1] = 3;
+            playerGoals[4, 2] = 0;
+            playerGoals[4, 3] = 0;
+            playerGoals[4, 4] = 0;
+
+            // calculate totals
+            totals[0] = playerGoals[0, 1] + playerGoals[1, 1] + playerGoals[2, 1] + playerGoals[3, 1] + playerGoals[4, 1];
+            totals[1] = playerGoals[0, 2] + playerGoals[1, 2] + playerGoals[2, 2] + playerGoals[3, 2] + playerGoals[4, 2];
+            totals[2] = playerGoals[0, 3] + playerGoals[1, 3] + playerGoals[2, 3] + playerGoals[3, 3] + playerGoals[4, 3];
+            totals[3] = playerGoals[0, 4] + playerGoals[1, 4] + playerGoals[2, 4] + playerGoals[3, 4] + playerGoals[4, 4];
+
+            // output
+            Console.WriteLine("{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}", "Player #", "Match 1", "Match 2", "Match 3", "Match 4");
+            Console.WriteLine("{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}", playerNames[0], playerGoals[0, 1], playerGoals[0, 2], playerGoals[0, 3], playerGoals[0, 4]);
+            Console.WriteLine("{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}",playerNames[1], playerGoals[1, 1], playerGoals[1, 2], playerGoals[1, 3], playerGoals[1, 4]);
+            Console.WriteLine("{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}", playerNames[2], playerGoals[2, 1], playerGoals[2, 2], playerGoals[2, 3], playerGoals[2, 4]);
+            Console.WriteLine("{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}", playerNames[3], playerGoals[3, 1], playerGoals[3, 2], playerGoals[3, 3], playerGoals[3, 4]);
+            Console.WriteLine("{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}", playerNames[4], playerGoals[4, 1], playerGoals[4, 2], playerGoals[4, 3], playerGoals[4, 4]);
+
+            Console.WriteLine("\n{0,-15}{1,-15}{2,-15}{3,-15}{4,-15}", "Totals", totals[0], totals[1], totals[2], totals[3]);
+            Console.ReadLine();
+
+        }
+    }
+}
